@@ -4,22 +4,68 @@
   
 - name: install the 'Development tools' package group
   package: name="@Development tools" state=present
-
+  tags:
+    - dev
+   
 - name: install every thing
   package: name="meld,keepass,vim" state=present
+  tags:
+   - dev
+
+- name: Download Oracle JDK
+  get_url: 
+    url=http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz 
+    headers=Cookie:oraclelicense=accept-securebackup-cookie
+    validate_certs=false
+    dest=/opt/developer/jdk-8u111-linux-x64.tar.gz
+    owner={{ user}}
+    group={{ user}}
+  tags:
+   - dev
+   - oracle
+
+- name: Extract Oracle
+  unarchive: 
+    src=/opt/developer/jdk-8u111-linux-x64.tar.gz 
+    dest=/opt/developer/
+    creates=/opt/developer/jdk1.8.0_111/
+  tags:
+   - dev
+   - oracle
+
+- name: Create JDK Links
+  file: src=/opt/developer/jdk1.8.0_111 dest=/opt/developer/jdk state=link
+  tags:
+   - dev
+   - oracle
 
 - name: Download Wildfly
   get_url: 
     url=http://download.jboss.org/wildfly/10.0.0.Final/wildfly-10.0.0.Final.tar.gz 
     dest=/opt/developer/wildfly-10.0.0.Final.tar.gz
-    
-- name: Extract archive
+    owner={{ user}}
+    group={{ user}}
+  tags:
+   - dev
+   - wildfly
+
+- name: Extract Wildfly
   unarchive: 
     src=/opt/developer/wildfly-10.0.0.Final.tar.gz 
-    dest=/opt/
+    dest=/opt/developer/
+    creates=/opt/developer/wildfly-10.0.0.Final/
+  tags:
+   - dev
+   - wildfly
+
+- name: Create Wildfly Links
+  file: src=/opt/developer/wildfly-10.0.0.Final dest=/opt/developer/wildfly state=link
+  tags:
+   - dev
+   - wildfly
+   
 
 #oracle jdk
-#vmirc
 #maven
 #maven settings
 #gitconfig

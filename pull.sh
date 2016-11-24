@@ -42,11 +42,11 @@ fi
 # Do ansible
 #
 typeset ME=$(whoami)
-sudo ansible-playbook local.yml -v --extra-vars="user=$ME"
+sudo ansible-playbook local.yml -v --extra-vars="user=$ME" $@
 
 #
 # Set these again in case ansible wiped them out
 #
-git config --global user.name $git_user
-git config --global user.email $git_email
+git config --global user.name $git_user >/dev/null 2>&1
+git config --global user.email $git_email  >/dev/null 2>&1
 
