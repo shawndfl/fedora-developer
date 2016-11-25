@@ -3,9 +3,13 @@
   copy:
    src={{ item }}
    dest=~{{user}}/.{{ item }}
+   owner={{user}}
+   group={{user}}
   with_items:
    - vimrc
    - bashrc
    - bash_profile
+   - bash_profile.d/
+   - bashrc.d/
   tags:
    - home

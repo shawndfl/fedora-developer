@@ -9,3 +9,6 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
+for i in ~/.bashrc.d/*.sh ; do
+	. "$i"
+done
