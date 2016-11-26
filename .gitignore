@@ -4,3 +4,5 @@ RemoteSystemsTempFiles/
 
 #ansible
 *.retry
+
+*.swp

@@ -5,5 +5,5 @@
 
   vars:
 
-  tasks:
-   - include: roles/developer/tasks/developer.yml
+  roles:
+   - developer
