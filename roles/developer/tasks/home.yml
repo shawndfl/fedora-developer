@@ -1,0 +1,11 @@
+---
+- name: copy vimrc
+  copy:
+   src={{ item }}
+   dest=~{{user}}/.{{ item }}
+  with_items:
+   - vimrc
+   - bashrc
+   - bash_profile
+  tags:
+   - home

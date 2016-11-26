@@ -1,12 +1,12 @@
 ---
-- name: update dnf repo
-  package: name=* state=latest
+#- name: update dnf repo
+#  package: name=* state=latest
   
 - name: install the 'Development tools' package group
   package: name="@Development tools" state=present
 
 - name: install every thing
-  package: name="meld keepass vim" state=present
+  package: name="meld,keepass,vim" state=present
 
 - name: Download Wildfly
   get_url: 

@@ -1,2 +1,3 @@
 ---
   - include: developer.yml
+  - include: home.yml
