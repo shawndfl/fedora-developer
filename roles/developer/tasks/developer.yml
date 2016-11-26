@@ -5,6 +5,9 @@
 - name: install the 'Development tools' package group
   package: name="@Development tools" state=present
 
+- name: install every thing
+  package: name="meld keepass vim" state=present
+
 - name: Download Wildfly
   get_url: 
     url=http://download.jboss.org/wildfly/10.0.0.Final/wildfly-10.0.0.Final.tar.gz 
@@ -14,3 +17,18 @@
   unarchive: 
     src=/opt/developer/wildfly-10.0.0.Final.tar.gz 
     dest=/opt/
+
+#oracle jdk
+#vmirc
+#maven
+#maven settings
+#gitconfig
+#bash_profile paths
+#bash_alias
+#git prompt
+#eclipse
+#gimp
+#blender
+#npm
+#Three.js
+
