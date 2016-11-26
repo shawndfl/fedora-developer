@@ -16,8 +16,37 @@ if [ "$?" -ne "0" ]; then
    sudo yum install -y git
 fi
 
+#
+# Set git user
+#
+typeset git_user
+git config --global user.name
+if [ "$?" -ne "0" ]; then
+   echo -n "Enter your user name for git: "
+   read git_user
+   git config --global user.name $git_user
+fi
+
+#
+# Set git email
+#
+typeset git_email
+git config --global user.email
+if [ "$?" -ne "0" ]; then
+   echo -n "Enter your email for git: "
+   read git_email
+   git config --global user.email $git_email
+fi
+
+#
+# Do ansible
+#
 typeset ME=$(whoami)
 sudo ansible-playbook local.yml -v --extra-vars="user=$ME"
 
-
+#
+# Set these again in case ansible wiped them out
+#
+git config --global user.name $git_user
+git config --global user.email $git_email
 
