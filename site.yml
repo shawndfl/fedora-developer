@@ -2,14 +2,12 @@
 # This playbook deploys a domain server 
 
 - hosts: domain-controller 
-  remote_user: root
-
+  
   roles:
     - wildfly-dc
 
-- hosts: servers 
-  remote_user: root
-
-  roles:
-    - wildfly-server
+#- hosts: servers 
+#  
+#  roles:
+#    - wildfly-server
     
