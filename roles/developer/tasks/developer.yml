@@ -1,0 +1,16 @@
+---
+- name: update dnf repo
+  package: name=* state=latest
+  
+- name: install the 'Development tools' package group
+  package: name="@Development tools" state=present
+
+- name: Download Wildfly
+  get_url: 
+    url=http://download.jboss.org/wildfly/10.0.0.Final/wildfly-10.0.0.Final.tar.gz 
+    dest=/opt/developer/wildfly-10.0.0.Final.tar.gz
+    
+- name: Extract archive
+  unarchive: 
+    src=/opt/developer/wildfly-10.0.0.Final.tar.gz 
+    dest=/opt/

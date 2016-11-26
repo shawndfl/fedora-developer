@@ -1,2 +1,6 @@
+#eclipse
 .metadata/
 RemoteSystemsTempFiles/
+
+#ansible
+*.retry

@@ -1,0 +1,9 @@
+---
+# local.yml is used for pull-based Ansible setup.
+
+- hosts: localhost 
+
+  vars:
+
+  tasks:
+   - include: roles/developer/tasks/developer.yml
