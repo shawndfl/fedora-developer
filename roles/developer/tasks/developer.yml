@@ -86,12 +86,33 @@
   unarchive: 
     src=/opt/developer/eclipse-inst-linux64.tar.gz
     dest=/opt/developer/
-    creates=/opt/developer/eclipse-inst-linux64/
+    creates=/opt/developer/eclipse/
     owner={{ user}}
     group={{ user}}
   tags:
    - dev
    - eclipse
+
+- name: Download Android Studio
+  get_url: 
+    url=https://dl.google.com/dl/android/studio/ide-zips/2.2.2.0/android-studio-ide-145.3360264-linux.zip
+    dest=/opt/developer/android-studio-ide-145.3360264-linux.zip
+    owner={{ user}}
+    group={{ user}}
+  tags:
+   - dev
+   - android
+
+- name: Extract Android Studio
+  unarchive: 
+    src=/opt/developer/android-studio-ide-145.3360264-linux.zip
+    dest=/opt/developer/
+    creates=/opt/developer/android-studio/
+    owner={{ user}}
+    group={{ user}}
+  tags:
+   - dev
+   - android
 
 #maven settings
 #gimp

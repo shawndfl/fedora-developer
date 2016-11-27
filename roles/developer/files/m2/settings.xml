@@ -1,0 +1,12 @@
+<settings>
+      
+  <mirrors>
+    <mirror>
+      <id>US</id>
+      <name>US Central</name>
+      <url>http://repo.maven.apache.org/maven2</url>
+      <mirrorOf>central</mirrorOf>
+    </mirror>
+  </mirrors>
+      
+</settings>

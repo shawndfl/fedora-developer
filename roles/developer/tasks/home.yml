@@ -1,5 +1,5 @@
 ---
-- name: copy vimrc
+- name: Copy Files For Home Directory
   copy:
    src={{ item }}
    dest=~{{user}}/.{{ item }}
@@ -7,9 +7,11 @@
    group={{user}}
   with_items:
    - vimrc
+   - gitconfig  
    - bashrc
    - bash_profile
    - bash_profile.d/
    - bashrc.d/
+   - m2
   tags:
    - home
