@@ -1,6 +1,0 @@
-[alias]
-	st = status -s
-	dt = difftool -y
-	l = log --decorate --graph --all
-[diff]
-	tool = meld

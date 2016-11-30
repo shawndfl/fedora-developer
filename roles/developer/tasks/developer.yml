@@ -24,6 +24,17 @@
    - dev
    - oracle
 
+- name: Setup Git
+  shell: "sudo -H -u {{ user }} bash -c 'git config --global {{ item.id }} \"{{item.value }}\"'"
+  with_items:
+     - { id: alias.st, value: 'status -s'}
+     - { id: alias.l, value: 'log --decorate --graph --all'}
+     - { id: alias.dt, value: 'difftool -y'}
+     - { id: diff.tool, value: 'meld'}
+  tags:
+     - dev
+     - git
+
 - name: Extract Oracle
   unarchive: 
     src=/opt/developer/jdk-8u111-linux-x64.tar.gz 
@@ -92,6 +103,19 @@
   tags:
    - dev
    - eclipse
+##uncomment when JBoss fixes its dependencies conflicts
+#- name: Add JBoss Plugin
+#  shell: >
+#     sudo -H -u {{ user }} bash -c '
+#     /opt/developer/eclipse/eclipse 
+#     -clean -purgeHistory 
+#     -application org.eclipse.equinox.p2.director 
+#     -noSplash 
+#     -repository https://devstudio.redhat.com/10.0/stable/updates/
+#     -installIUs com.jboss.devstudio.core.feature.feature.group'
+#  tags:
+#     - dev
+#     - eclipse
 
 - name: Download Android Studio
   get_url: 
