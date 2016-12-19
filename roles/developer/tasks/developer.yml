@@ -7,10 +7,16 @@
   tags:
     - dev
    
-- name: install every thing
+- name: Install Developer Tools
   package: name="meld,keepass,vim,maven" state=present
   tags:
    - dev
+
+- name: Install Art Tools 
+  package: name="gimp,blender" state=present
+  tags:
+   - dev
+   - art
 
 - name: Download Oracle JDK
   get_url: 

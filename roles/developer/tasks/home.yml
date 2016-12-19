@@ -7,7 +7,6 @@
    group={{user}}
   with_items:
    - vimrc
-   - gitconfig  
    - bashrc
    - bash_profile
    - bash_profile.d/
