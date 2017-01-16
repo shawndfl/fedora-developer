@@ -8,7 +8,7 @@
     - dev
    
 - name: Install Developer Tools
-  package: name="meld,keepass,vim,maven" state=present
+  package: name="meld,keepass,maven" state=present
   tags:
    - dev
 
