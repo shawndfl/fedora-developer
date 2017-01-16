@@ -1,4 +1,23 @@
 #! /bin/bash
+#
+# Get user name for
+#
+typeset git_user
+git config --global user.name > /dev/null 2>&1
+if [ "$?" -ne "0" ]; then
+   echo -n "Enter your user name for git: "
+   read git_user
+fi
+
+#
+# Set git email
+#
+typeset git_email
+git config --global user.email >/dev/null 2>&1
+if [ "$?" -ne "0" ]; then
+   echo -n "Enter your email for git: "
+   read git_email
+fi
 
 #
 # Check for ansible
@@ -19,22 +38,16 @@ fi
 #
 # Set git user
 #
-typeset git_user
 git config --global user.name > /dev/null 2>&1
 if [ "$?" -ne "0" ]; then
-   echo -n "Enter your user name for git: "
-   read git_user
    git config --global user.name $git_user
 fi
 
 #
 # Set git email
 #
-typeset git_email
 git config --global user.email >/dev/null 2>&1
 if [ "$?" -ne "0" ]; then
-   echo -n "Enter your email for git: "
-   read git_email
    git config --global user.email $git_email
 fi
 
@@ -42,4 +55,4 @@ fi
 # Do ansible
 #
 typeset ME=$(whoami)
-sudo ansible-playbook local.yml -v --extra-vars="user=$ME" $@
+sudo ansible-pull -U https://github.com/shawndfl/fedora-developer.git -v --extra-vars="user=$ME" $@
