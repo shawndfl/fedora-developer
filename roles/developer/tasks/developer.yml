@@ -17,6 +17,15 @@
   tags:
    - dev
    - art
+   
+- name: Create a developer folder
+  file:
+    path=/opt/developer
+    state=directory
+    owner={{ user }}
+    group={{ user }}
+  tags:
+    - dev
 
 - name: Download Oracle JDK
   get_url: 
@@ -41,16 +50,6 @@
      - dev
      - git
      
-- name: Create a developer folder
-  file:
-    path=/opt/developer
-    state=directory
-    owner={{ user }}
-    group={{ user }}
-  tags:
-    - dev
-    - test
-
 - name: Extract Oracle
   unarchive: 
     src=/opt/developer/jdk-8u111-linux-x64.tar.gz 
