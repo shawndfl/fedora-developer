@@ -40,6 +40,16 @@
   tags:
      - dev
      - git
+     
+- name: Create a developer folder
+  file:
+    path=/opt/developer
+    state=directory
+    owner={{ user }}
+    group={{ user }}
+  tags:
+    - dev
+    - test
 
 - name: Extract Oracle
   unarchive: 
