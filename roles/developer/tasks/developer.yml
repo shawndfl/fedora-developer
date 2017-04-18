@@ -6,7 +6,7 @@
   package: name="@Development tools" state=present
   tags:
     - dev
-   
+
 - name: Install Developer Tools
   package: name="meld,keepass,maven" state=present
   tags:
@@ -40,7 +40,7 @@
    - oracle
 
 - name: Setup Git
-  shell: "sudo -H -u {{ user }} bash -c 'git config --global {{ item.id }} \"{{item.value }}\"'"
+  shell: "su - {{ user }} -c 'git config --global {{ item.id }} \"{{item.value }}\"'"
   with_items:
      - { id: alias.st, value: 'status -s'}
      - { id: alias.l, value: 'log --decorate --graph --all'}
